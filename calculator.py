@@ -4,20 +4,34 @@ Contoh Kalkulator Sederhana untuk Python
 
 def tambah(a, b):
     """Menjumlahkan dua angka"""
-    return a + b
+    try: 
+        return a + b
+    except TypeError:
+        return "Error: Masukkan angka yang valid!"
 
 def kurang(a, b):
     """Mengurangkan dua angka"""
-    return a - b
+    try:
+        return a - b
+    except TypeError:
+        return "Error: Masukkan angka yang valid!"
+        
+
+    
 
 def kali(a, b):
     """Mengalikan dua angka"""
+    if type (a) not in [int, float] or type (b) not in [int, float]:
+        return "Error: Masukkan angka yang valid!"
     return a * b
 
 def bagi(a, b):
     """Membagi dua angka"""
-    if b == 0:
-        return "Error: Tidak bisa dibagi dengan 0!"
+    if type (a) not in [int, float] or type (b) not in [int, float]:
+        return "Error: Masukkan angka yang valid!"
+    elif b == 0: 
+        return "Error: Tidak bisa dibagi dengan 0"
+
     return a / b
 
 def kalkulator():
