@@ -1,38 +1,8 @@
-"""
-Contoh Kalkulator Sederhana untuk Python
-"""
+import calculator
 
-def tambah(a, b):
-    """Menjumlahkan dua angka"""
-    try: 
-        return a + b
-    except TypeError:
-        return "Error: Masukkan angka yang valid!"
 
-def kurang(a, b):
-    """Mengurangkan dua angka"""
-    try:
-        return a - b
-    except TypeError:
-        return "Error: Masukkan angka yang valid!"
-        
 
-    
 
-def kali(a, b):
-    """Mengalikan dua angka"""
-    if type (a) not in [int, float] or type (b) not in [int, float]:
-        return "Error: Masukkan angka yang valid!"
-    return a * b
-
-def bagi(a, b):
-    """Membagi dua angka"""
-    if type (a) not in [int, float] or type (b) not in [int, float]:
-        return "Error: Masukkan angka yang valid!"
-    elif b == 0: 
-        return "Error: Tidak bisa dibagi dengan 0"
-
-    return a / b
 
 def kalkulator():
     """Program kalkulator interaktif"""
@@ -58,15 +28,19 @@ def kalkulator():
             try:
                 angka1 = float(input("Masukkan angka pertama: "))
                 angka2 = float(input("Masukkan angka kedua: "))
+                if angka1%1 == 0:
+                    angka1 = int(angka1)
+                if angka2%1 == 0:
+                    angka2 = int(angka2)
                 
                 if pilihan == "1":
-                    print(f"Hasil: {angka1} + {angka2} = {tambah(angka1, angka2)}")
+                    print(f"Hasil: {angka1} + {angka2} = {calculator.tambah(angka1, angka2)}")
                 elif pilihan == "2":
-                    print(f"Hasil: {angka1} - {angka2} = {kurang(angka1, angka2)}")
+                    print(f"Hasil: {angka1} - {angka2} = {calculator.kurang(angka1, angka2)}")
                 elif pilihan == "3":
-                    print(f"Hasil: {angka1} * {angka2} = {kali(angka1, angka2)}")
+                    print(f"Hasil: {angka1} * {angka2} = {calculator.kali(angka1, angka2)}")
                 elif pilihan == "4":
-                    hasil = bagi(angka1, angka2)
+                    hasil = calculator.bagi(angka1, angka2)
                     print(f"Hasil: {angka1} / {angka2} = {hasil}")
             
             except ValueError:
@@ -76,3 +50,19 @@ def kalkulator():
 
 if __name__ == "__main__":
     kalkulator()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

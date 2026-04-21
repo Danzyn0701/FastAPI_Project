@@ -1,5 +1,5 @@
 import pytest
-import calculator
+import App.calculator as calculator
 
 
 def test_tambah():
